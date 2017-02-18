@@ -9,7 +9,7 @@ class BuzzFeedAPI(object):
         try:
             return requests.get(path, params=params)
         except requests.exceptions.RequestException:
-            raise FeedException("Invalid API response")
+            raise BuzzFeedException("Invalid API response")
 
     def get_feed_page(self, feed, pagenum):
         d = {}
@@ -51,7 +51,7 @@ class BuzzFeedAPI(object):
             start_date = datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
             end_date = datetime.strptime(end, '%Y-%m-%d %H:%M:%S')
         except ValueError:
-            raise FeedException("Invalid time. Format expected: %Y-%m-%d %H:%M:%S")
+            raise BuzzFeedException("Invalid time. Format expected: %Y-%m-%d %H:%M:%S")
         inrange = []
 
         #loop over all buzzes to get ones in a certain time range

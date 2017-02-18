@@ -4,13 +4,15 @@ A simple wrapper class for [BuzzFeed's public API](https://gist.github.com/chezc
 ---
 
 Clone the repository using `git clone`
-Run setup.py `python setup.py`
 
-Heres an example of getting Tasty articles from Feb 2nd to Feb 4th that have over 10 comments.
+Run setup.py `python setup.py install`
+
+Heres an example of getting "lol" articles from Feb 2nd to Feb 4th that have over 10 comments.
 
 ```python
 from pythonbuzzfeed import BuzzFeedAPI
-buzzes = self.API.get_popular(feed, "2017-02-02 00:00:00", "2017-02-04 00:00:00", 10)
+API = BuzzFeedAPI()
+buzzes = API.get_popular("lol", "2017-02-02 00:00:00", "2017-02-04 00:00:00", 10)
 for buzz in buzzes:
     #do something
 ```
